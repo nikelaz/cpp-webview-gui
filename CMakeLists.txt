@@ -5,6 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(WEBVIEW_WEBKITGTK_API 6.0)	
 
 include(FetchContent)
 
@@ -16,10 +17,6 @@ FetchContent_MakeAvailable(webview)
 
 add_executable(app WIN32)
 
-set_target_properties(app PROPERTIES
-    CXX_STANDARD 23
-    CXX_STANDARD_REQUIRED YES
-    CXX_EXTENSIONS NO
-)
-target_sources(app PRIVATE src/main.cpp)
+target_sources(app PRIVATE src/main.cpp ui/dist/index_html.h)
+target_include_directories(app PRIVATE ui/dist)
 target_link_libraries(app PRIVATE webview::core)

@@ -1,9 +1,6 @@
 #include "webview/webview.h"
 #include <iostream>
-
-const char index_html[] = {
-    #embed "../ui/dist/index.html"
-};
+#include "index_html.h"
 
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,
@@ -15,7 +12,11 @@ int main() {
     webview::webview main_window(false, nullptr);
     main_window.set_title("Prompt Workbench");
     main_window.set_size(1280, 720, WEBVIEW_HINT_NONE);
-    main_window.set_html(index_html);
+
+    // add timestamp comment to the end of the file because webviews
+    // cache aggressively
+    main_window.set_html(INDEX_HTML);
+
     main_window.run();
   } catch (const webview::exception &e) {
     std::cerr << e.what() << '\n';
