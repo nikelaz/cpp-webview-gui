@@ -12,12 +12,14 @@ include(FetchContent)
 FetchContent_Declare(
     webview
     GIT_REPOSITORY https://github.com/webview/webview
-    GIT_TAG 0.12.0)
+    GIT_TAG 0.12.0
+)
 FetchContent_MakeAvailable(webview)
 
 FetchContent_Declare(
   json
-  URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
+  GIT_REPOSITORY https://github.com/nlohmann/json 
+  GIT_TAG v3.12.0
 )
 FetchContent_MakeAvailable(json)
 
