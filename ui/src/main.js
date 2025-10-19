@@ -1,8 +1,12 @@
 import './style.css';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <h1>Hello Vite!</h1>
-    <p>Click on the Vite logo to learn more</p>
-  </div>
-`;
+function main() {
+  const textField = document.querySelector("#text-field");
+  const sendBtn = document.querySelector("#send-btn");
+
+  sendBtn.addEventListener("click", () => {
+    window.ping(textField.value); 
+  });
+}
+
+window.addEventListener('DOMContentLoaded', main);

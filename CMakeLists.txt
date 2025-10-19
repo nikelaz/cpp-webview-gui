@@ -15,8 +15,14 @@ FetchContent_Declare(
     GIT_TAG 0.12.0)
 FetchContent_MakeAvailable(webview)
 
+FetchContent_Declare(
+  json
+  URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
+)
+FetchContent_MakeAvailable(json)
+
 add_executable(app WIN32)
 
 target_sources(app PRIVATE src/main.cpp ui/dist/index_html.h)
 target_include_directories(app PRIVATE ui/dist)
-target_link_libraries(app PRIVATE webview::core)
+target_link_libraries(app PRIVATE webview::core nlohmann_json::nlohmann_json)
