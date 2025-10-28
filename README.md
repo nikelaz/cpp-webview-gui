@@ -33,8 +33,8 @@ This repository contains the source code for the accompanying YouTube video: **c
 1. Clone the repository:
 
 ```
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/nikelaz/cpp-webview-gui.git
+cd cpp-webview-gui
 ```
 
 2. Build the UI
